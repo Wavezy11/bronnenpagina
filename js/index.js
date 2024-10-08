@@ -231,9 +231,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 {text: "VR 360° Video - Cyberpesten (NL) ", url: "https://www.doe-iets-vr.nl/"}
             ],
             "Verschil AR, VR, MR": [
-                {text: "Augmented Reality", url: "https://example.com/ar"},
-                {text: "Virtual Reality", url: "https://example.com/vr"},
-                {text: "Mixed Reality", url: "https://example.com/mr"}
+                {text: "De verschillen tussen AR, VR & MR", url: "https://www.youtube.com/watch?v=lpTPVADiIYQ&t=36s"}
             ],
 
 
