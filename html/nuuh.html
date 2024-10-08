@@ -1,0 +1,77 @@
+ <!DOCTYPE html>
+    <html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <link rel="stylesheet" href="../css/contact.css">
+        <style>
+           
+            .notification {
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 20px;
+                border-radius: 5px;
+                color: #fff;
+                font-size: 1rem;
+                z-index: 1000;
+                width: 80%;
+                max-width: 500px;
+                text-align: center;
+                display: none;
+            }
+
+            .notification.success {
+                background-color: #28a745; /* Groene achtergrond voor succes */
+                animation: slideIn 0.5s ease-out;
+            }
+
+            .notification.error {
+                background-color: #dc3545; /* Rode achtergrond voor fout */
+                animation: slideIn 0.5s ease-out;
+            }
+
+            @keyframes slideIn {
+                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+
+           
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <h1>Nu uh</h1>
+            </div>
+        </header>
+        <main>
+           <img src="../img/nuh-uh.gif" alt="nuuh">
+        </main>
+        <footer class="footer-content">
+            <p>&copy; 2024 PIT</p>
+        </footer>
+        <script>
+            // Laat de notificatie zien als er een succesvol bericht of een fout is
+            document.addEventListener('DOMContentLoaded', function() {
+                var notifications = document.querySelectorAll('.notification');
+                if (notifications.length) {
+                    notifications.forEach(function(notification) {
+                        notification.style.display = 'block';
+                        setTimeout(function() {
+                            notification.style.opacity = '0';
+                            setTimeout(function() {
+                                notification.style.display = 'none';
+                            }, 500);
+                        }, 3000); // Laat notificatie 3 seconden zien
+                    });
+                }
+            });
+        </script>
+    </body>
+    </html>
+    <?php
+}
+?>

@@ -1,0 +1,166 @@
+/* Basic Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #F0F4F8;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header img {
+    width: 120px;
+}
+#searchInput {
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid #d1d1d1;
+    width: 300px;
+}
+#searchInput:focus {
+    border-color: #8F88FD;
+    outline: none;
+}
+
+/* Main Content */
+main {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Flexbox layout for categories */
+.category-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Reduced space between columns */
+}
+#linksList {
+   
+}
+/* Individual category styling */
+.category {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.category h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Subject Layout: Image on left, Text on right */
+.subject-container {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #d1d1d1;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 10px; /* Reduced bottom margin */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+.subject-container img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+.subject-container p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+.subject-container:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-5px);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px; /* Adjusted padding */
+    border-radius: 16px;
+    max-width: 500px;
+    width: 80%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+/* Close button for Modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #e74c3c;
+}
+
+/* Button inside the modal */
+.ga-door-button {
+    background-color: #8F88FD;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.ga-door-button:hover {
+    background-color: #6b5eea;
+    transform: translateY(-3px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+    .modal-content {
+        padding: 20px;
+        width: 90%;
+    }
+}
+@media (max-width: 468px) {
+    .modal-content {
+        padding: 15px;
+        width: 90%;
+    }
+    .close {
+        font-size: 20px;
+    }
+    .ga-door-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}

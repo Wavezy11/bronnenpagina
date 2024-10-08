@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIT</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        /* Basisstijl */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            width: 100vw;
+            height: 100vh;
+            left: 0;
+        }
+
+        header, main {
+            padding: 20px;
+            background-color: #FAF9F6;
+        }
+
+        .category-description {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .options-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            height: 60vh;
+            width: 100%;
+        }
+
+        .option {
+            height: 60vh;
+            background-color: #d1e0e0;
+            cursor: pointer;
+            transition: background-color 0.4s, transform 0.4s;
+            width: 30vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .option h2 {
+            color: white;
+            margin: 0;
+            text-align: center;
+        }
+
+        .option:hover {
+            background-color: #a1c1c1;
+            transform: translateX(10px);
+        }
+
+        .content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .subjects-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .subject-box {
+            width: 150px;
+            height: 150px;
+            background-color: #d1e0e0;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+            transition: all 0.4s ease;
+        }
+
+        .subject-box:hover {
+            background-color: #a1c1c1;
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #d1e0e0;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PRACTORAAT INTERACTIEVE TECHNOLOGIE</h1>
+    </header>
+
+    <main>
+        <section class="category-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kies een categorie om de bijbehorende vakken te zien.</p>
+        </section>
+
+        <section class="options-container">
+            <div class="option" data-option="school">
+                <h2>School</h2>
+                <a href="school.html" alt="school"></a>
+            </div>
+            <div class="option" data-option="ict">
+                <h2>ICT</h2>
+            </div>
+            <div class="option" data-option="overig">
+                <h2>Overig</h2>
+            </div>
+        </section>
+
+        <section id="school" class="content">
+            <h2>School Vakken</h2>
+            <div class="subjects-container">
+                <div class="subject-box" data-subject="biologie">Biologie</div>
+                <div class="subject-box" data-subject="ckv">CKV</div>
+            </div>
+        </section>
+
+        <section id="ict" class="content">
+            <h2>ICT Vakken</h2>
+            <div class="subjects-container">
+                <div class="subject-box" data-subject="ict">ICT</div>
+                <div class="subject-box" data-subject="softskills">Softskills</div>
+            </div>
+        </section>
+
+        <section id="overig" class="content">
+            <h2>Overige Vakken</h2>
+            <div class="subjects-container">
+                <div class="subject-box" data-subject="meerdereVakken">Meerdere vakken</div>
+                <div class="subject-box" data-subject="verzorging">Verzorging</div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="popupModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Vak Details</h2>
+                <p id="modalContent">Details over het vak komen hier.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Logica om categorieën te tonen
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Verberg alle inhoud
+                document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+                
+                // Toon de geselecteerde inhoud
+                document.getElementById(this.getAttribute('data-option')).classList.add('active');
+            });
+        });
+
+      
+        // Modal popup voor vakken
+        document.querySelectorAll('.subject-box').forEach(subject => {
+            subject.addEventListener('click', function() {
+                document.getElementById('popupModal').style.display = 'block';
+                document.getElementById('modalContent').textContent = this.textContent;
+            });
+        });
+
+        // Sluit modal
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('popupModal').style.display = 'none';
+        });
+        
+        // Sluit modal als buiten de modal wordt geklikt
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('popupModal')) {
+                document.getElementById('popupModal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+/* Basisstijl */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F6; /* Match met vorige project */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header stijl */
+header {
+    background-color: #d1e0e0; /* Match met vorige project */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: black; /* Title color matching theme */
+}
+
+/* Main styling */
+main {
+    padding: 40px;
+    background-color: #f1f1f1; /* Match met vorige project */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px); /* Adjust to fit viewport height */
+    box-sizing: border-box;
+}
+
+/* Form styling */
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Max width for larger screens */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+/* Input fields */
+input[type="email"],
+input[type="text"],
+textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Form buttons */
+form button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Match met vorige project */
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Match met vorige project */
+}
+
+/* Footer styling */
+.footer-content {
+    background-color: #d1e0e0; /* Match met vorige project */
+    padding: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 1.2rem; /* Smaller title font size on small screens */
+    }
+
+    main {
+        padding: 20px;
+        height: auto; /* Adjust height for small screens */
+    }
+
+    form {
+        width: 90%; /* Full width on small screens */
+        margin: 0 auto; /* Center form */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        font-size: 0.7rem; /* Smaller footer font size on very small screens */
+    }
+}

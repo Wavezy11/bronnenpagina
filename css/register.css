@@ -1,0 +1,141 @@
+/* Basisstijl */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F6; /* Match met vorige project */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header stijl */
+header {
+    background-color: #d1e0e0; /* Match met vorige project */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: black; /* Title color matching theme */
+}
+
+.header-content input[type="search"] {
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 40%;
+}
+
+/* Buttons styling */
+.buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.buttons button {
+    margin-left: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Match met vorige project */
+    color: white;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #0056b3; /* Match met vorige project */
+}
+
+/* Main styling */
+main {
+    padding: 40px;
+    background-color: #f1f1f1; /* Match met vorige project */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px); /* Adjust to fit viewport height */
+}
+
+/* Form styling */
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 37vh;
+}
+
+/* Input fields */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* Form buttons */
+form button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Match met vorige project */
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Match met vorige project */
+}
+
+
+#register {
+    position: absolute;
+    bottom: 5.6vw;
+}
+/* Text links */
+main p {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+main p a {
+    color: #007bff; /* Match met vorige project */
+    text-decoration: none;
+}
+
+main p a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+.footer-content {
+    background-color: #d1e0e0; /* Match met vorige project */
+    padding: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

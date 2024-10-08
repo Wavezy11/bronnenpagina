@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIT</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        /* Basic Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #F0F4F8;
+            color: #333;
+            box-sizing: border-box;
+        }
+     
+        header {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img {
+            width: 120px;
+        }
+        #searchInput {
+            padding: 10px;
+            border-radius: 30px;
+            border: 1px solid #d1d1d1;
+            width: 300px;
+            position: absolute;
+            right: 40vw;
+        }
+        #searchInput:focus {
+            border-color: #8F88FD;
+            outline: none;
+        }
+        /* Main Content */
+        main {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        /* Flexbox layout for categories */
+        .category-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px; /* space between columns */
+        }
+        /* Individual category styling */
+        .category {
+            flex: 1;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        /* Subject Layout: Image on left, Text on right */
+       /* Subject Layout: Image on left, Text on right */
+.subject-container {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #d1d1d1;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Added transition for smooth effect */
+}
+
+.subject-container img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    transition: transform 0.3s; /* Smooth scaling effect for image */
+}
+
+.subject-container p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.subject-container:hover {
+    background-color: lightblue; /* Change background color on hover */
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.subject-container:hover img {
+    transform: scale(1.1); /* Scale image slightly on hover */
+}
+        /* Modal Styling */
+        .modal {
+    display: none; /* Hidden by default */
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 120vh;
+    overflow: auto; /* Enable scroll if needed */
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    background-color: rgba(0,0,0,0.4); /* Black with opacity */
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #d1e0e0; /* Match met vorige project */
+    margin: 10% auto; /* Centered with margin from top */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc; /* Match with previous project */
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal h2 {
+    font-size: 1.5rem;
+    color: black; /* Title color matching theme */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.modal ul {
+    list-style: none;
+    padding: 0;
+}
+
+        /* Close button for Modal */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #e74c3c;
+        }
+        /* Button inside the modal */
+        .ga-door-button {
+            background-color: #8F88FD;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .ga-door-button:hover {
+            background-color: #6b5eea;
+            transform: translateY(-3px);
+        }
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .category-container {
+                flex-direction: column;
+            }
+            .subject-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .subject-container img {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            .modal-content {
+                padding: 20px;
+                width: 90%;
+            }
+        }
+        @media (max-width: 468px) {
+            .modal-content {
+                padding: 15px;
+                width: 90%;
+            }
+            .close {
+                font-size: 20px;
+            }
+            .ga-door-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Footer Styling */
+footer {
+    background-color: #f1f1f1; /* Light background color */
+    padding: 20px 0; /* Padding for top and bottom */
+    text-align: center; /* Center text */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on top */
+}
+
+.footer-content {
+    max-width: 1200px; /* Max width for the footer content */
+    margin: 0 auto; /* Center the footer content */
+    padding: 0 20px; /* Padding for left and right */
+}
+
+.footer-content p {
+    margin: 0; /* Remove default margin */
+    color: #333; /* Text color */
+}
+
+.footer-links {
+    list-style: none; /* Remove default list style */
+    padding: 0; /* Remove padding */
+    margin: 10px 0 0; /* Margin for spacing */
+}
+
+.footer-links li {
+    display: inline; /* Display links inline */
+    margin: 0 15px; /* Spacing between links */
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #8F88FD;
+    transition: color 0.3s; 
+}
+
+.footer-links a:hover {
+    color: #6b5eea;
+}
+
+
+@media (max-width: 768px) {
+    .footer-links li {
+        display: block; 
+        margin: 5px 0; 
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+         
+            <img src="img/logo-yonder.png" alt="logo" class="logo">
+            <input type="search" id="searchInput" oninput="filterImages()" placeholder="Zoeken">
+        </div>
+    </header>
+    <main>
+        <!-- Flexbox layout for the three categories -->
+        <div class="category-container">
+            <!-- Category 1: School -->
+            <section class="category">
+                <h2>School</h2>
+                <div class="subject-container">
+                    <img src="img/biologie.png" alt="icon">
+                    <p>Biologie</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/CKV.png" alt="icon">
+                    <p>CKV</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/gym.png" alt="icon">
+                    <p>GYM</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/economie.png" alt="icon">
+                    <p>Economie</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/mm.png" alt="icon">
+                    <p>Mens & Maatschappij</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/scheikunde.png" alt="icon">
+                    <p>Scheikunde</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Talen.png" alt="icon">
+                    <p>Talen</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/techniek.png" alt="icon">
+                    <p>Techniek</p>
+                </div>
+            
+            </section>
+            <!-- Category 2: ICT -->
+            <section class="category">
+                <h2>ICT</h2>
+                <div class="subject-container">
+                    <img src="img/Skills.png" alt="icon">
+                    <p>Softskills</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Kennismaking VR.png" alt="icon">
+                    <p>Kennismaking VR</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/websiteiconen.png" alt="icon">
+                    <p>Website Iconen</p>
+                </div>
+
+                <div class="subject-container">
+                    <img src="img/Gamefication.png" alt="icon">
+                    <p>Gamefication</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/ICT.png" alt="icon">
+                    <p>ICT</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Digitale Geleerdheid.png" alt="icon">
+                    <p>Digitale Geleerdheid</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Verschil .png" alt="icon">
+                    <p>Verschil AR, VR, MR</p>
+                </div>
+            </section>
+            <!-- Category 3: Overig -->
+            <section class="category">
+                <h2>Overig</h2>
+                <div class="subject-container">
+                    <img src="img/nuh-uh.gif" alt="icon">
+                    <p>Meerdere vakken</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Group 57.png" alt="icon">
+                    <p>Verzorging</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Group 58.png" alt="icon">
+                    <p>Horeca</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Group 58.png" alt="icon">
+                    <p>Beroepsgericht</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Group 59.png" alt="icon">
+                    <p>Muziek</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Group 60.png" alt="icon">
+                    <p>Cursessen</p>
+                </div>
+                <div class="subject-container">
+                    <img src="img/Group 60.png" alt="icon">
+                    <p>Spelgebasseerd Leren</p>
+                </div>
+                <div class="subject-container">
+                    <img src="path-to-placeholder-image.png" alt="icon">
+                    <p>Leuke GYM</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Yonder. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+ <div id="popupModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Welkom op onze vernieuwde Yurls Pagina!</h2>
+        <ul id="linksList">
+            <!-- Modal content here -->
+        </ul>
+        <button id="gaDoorButton" class="ga-door-button">Doorgaan</button>
+    </div>
+</div>
+    <script src="js/index.js"></script>
+    <script>
+        function openModal() {
+            const modal = document.getElementById('popupModal');
+            modal.style.display = 'flex';
+        }
+        function closeModal() {
+            const modal = document.getElementById('popupModal');
+            modal.style.display = 'none';
+        }
+        document.querySelectorAll('.subject-container').forEach((container) => {
+            container.addEventListener('click', openModal);
+        });
+        document.querySelector('.close').addEventListener('click', closeModal);
+        document.getElementById('gaDoorButton').addEventListener('click', closeModal);
+    </script>
+
+
+</body>
+</html>

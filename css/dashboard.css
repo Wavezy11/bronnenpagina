@@ -1,0 +1,196 @@
+/* Basisstijl */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Elegantere font */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
+/* Header styling */
+header {
+    height: 16vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #d1e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtiele schaduw voor diepte */
+    
+}
+#href {
+    position: absolute;
+    right: 2vw;
+}
+header h1 {
+    margin: 0;
+    font-size: 2rem; /* Grotere titel voor meer impact */
+    color: #333;
+}
+
+header p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+header a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #0056b3;
+}
+
+/* Main content styling */
+main {
+    padding: 20px;
+    background-color: #FAF9F6; /* Match met vorige project */
+    width: 100%;
+}
+
+section {
+    margin-bottom: 100px;
+}
+
+section h2 {
+    margin-bottom: 30px;
+    font-size: 1.6rem; /* Grotere sectietitels */
+    text-align: center;
+    background-color: #d1e0e0; /* Match met vorige project */
+    padding: 10px;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #d1e0e0; /* Match met vorige project */
+    color: black;
+    font-size: 1rem;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+table a:hover {
+    color: #0056b3;
+}
+
+/* Footer styling */
+footer {
+    background-color: #d1e0e0; /* Match met vorige project */
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1); /* Schaduw aan de bovenkant */
+    position: relative;
+    bottom: 0vh;
+}
+
+footer p {
+    margin: 0;
+    color: black;
+}
+/* Specific styles for delete_user.php */
+.delete-confirmation {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff3f3;
+    text-align: center;
+}
+
+.delete-confirmation p {
+    font-size: 18px;
+    color: #d9534f;
+}
+
+.delete-confirmation button {
+    background-color: #d9534f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-confirmation button:hover {
+    background-color: #c9302c;
+}

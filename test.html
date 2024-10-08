@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #F0F4F8; /* Light background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh; /* Full height */
+            width: 100vw;
+        }
+
+        /* Header Styles */
+        header {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img {
+    height: auto;
+    width: 120px; /* Original size */
+    position: relative;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+        /* Container for the subjects */
+        .subjects-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%; /* Full width */
+            height: 60%; /* Full height */
+            align-items: center; /* Center vertically */
+        }
+
+        /* Individual subject card styles */
+        .subject-card {
+            background-color: #D3D3D3; /* Gray background */
+            width: 27vw; /* Width of each subject card */
+            height: 100%; /* Full height */
+            position: relative; /* Position for absolute image */
+            cursor: pointer; /* Change cursor on hover */
+            overflow: hidden; /* Prevent overflow */
+            transition: background-color 0.3s;
+        }
+
+        .subject-card:hover {
+            background-color: #8F88FD; /* Change to color on hover */
+        }
+
+        /* Image styles */
+        .subject-image {
+            width: 100%; /* Full width */
+            height: 80%; /* Occupy 80% height of the card */
+            transition: filter 0.3s; /* Smooth transition for filter */
+            filter: grayscale(100%); /* Start as grayscale */
+            object-fit: cover; /* Cover the card area */
+        }
+
+        .subject-card:hover .subject-image {
+            filter: grayscale(0%); /* Remove grayscale on hover */
+        }
+
+        /* Title styles */
+        .subject-title {
+            text-align: center; /* Center title text */
+            font-size: 24px; /* Title font size */
+            padding: 10px 0; /* Padding around title */
+            color: #333; /* Dark text color */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <div class="header-content">
+        
+        <img src="img/logo-yonder.png" alt="logo" class="logo">
+        
+        <input type="search" id="searchInput" oninput="filterImages()" placeholder="Zoeken">
+        
+        
+        </div>
+        
+        </header>
+<div class="subjects-container">
+    <div class="subject-card">
+        <img src="https://www.gym-nw.de/wp-content/uploads/2018/05/Biologie.jpg" alt="Biologie" class="subject-image">
+        <div class="subject-title">Biologie</div>
+    </div>
+    <div class="subject-card">
+        <img src="https://via.placeholder.com/300x300/CCCCCC/000000?text=CKV" alt="CKV" class="subject-image">
+        <div class="subject-title">CKV</div>
+    </div>
+    <div class="subject-card">
+        <img src="https://via.placeholder.com/300x300/CCCCCC/000000?text=Economie" alt="Economie" class="subject-image">
+        <div class="subject-title">Economie</div>
+    </div>
+</div>
+
+</body>
+</html>
